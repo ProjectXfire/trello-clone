@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
 import { Fredoka } from 'next/font/google';
 import './globals.css';
-import { siteConfig } from './shared/config';
+import { siteConfig } from '../shared/config';
 
 const inter = Fredoka({ subsets: ['latin'] });
 

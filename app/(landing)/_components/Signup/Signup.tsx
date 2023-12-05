@@ -1,6 +1,6 @@
 import NextLink from 'next/link';
 import styles from './Signup.module.css';
-import { Button } from '@/app/shared/components';
+import { Button } from '@/shared/components';
 
 function Signup(): JSX.Element {
   return (

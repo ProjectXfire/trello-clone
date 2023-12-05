@@ -9,7 +9,11 @@
   justify-content: space-between;
 }
 
-.actions {
+.footer-logo {
+  display: none;
+}
+
+.footer-actions {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -17,7 +21,10 @@
 }
 
 @media screen and (min-width: 500px) {
-  .actions {
+  .footer-logo {
+    display: block;
+  }
+  .footer-actions {
     width: auto;
   }
 }

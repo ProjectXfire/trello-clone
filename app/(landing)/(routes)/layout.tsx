@@ -1,16 +1,10 @@
-import { auth } from '@clerk/nextjs';
-import { Footer, Layout, Navbar } from '../components';
-import { redirect } from 'next/navigation';
+import { Footer, Layout, Navbar } from '../_components';
 
 interface Props {
   children: React.ReactNode;
 }
 
 async function LandingLayout({ children }: Props) {
-  const { userId } = auth();
-
-  if (userId) redirect('/workspace');
-
   return (
     <Layout>
       <Navbar />
