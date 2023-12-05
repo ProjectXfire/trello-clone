@@ -1,0 +1,15 @@
+.logo {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.logo p {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+  .logo {
+    display: flex;
+  }
+}

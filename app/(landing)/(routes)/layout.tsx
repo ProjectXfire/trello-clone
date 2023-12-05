@@ -1,8 +1,16 @@
+import { Footer, Layout, Navbar } from '../components';
+
 interface Props {
   children: React.ReactNode;
 }
 
-function LandingPage({ children }: Props) {
-  return <div>{children}</div>;
+function LandingLayout({ children }: Props) {
+  return (
+    <Layout>
+      <Navbar />
+      {children}
+      <Footer />
+    </Layout>
+  );
 }
-export default LandingPage;
+export default LandingLayout;

@@ -24,6 +24,7 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
+    --max-width: 1240px;
     /* Custom variables */
     --color1: #bfdbfe;
     --color2: #60a5fa;
@@ -31,6 +32,7 @@
     --color4: #1e3a8a;
     --slate-light: #e2e8f0;
     --slate-dark: #64748b;
+    --black: #0f172a;
     --error: #ef4444;
     --warning: #f59e0b;
     --success: #16a34a;

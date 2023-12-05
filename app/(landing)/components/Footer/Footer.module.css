@@ -1,0 +1,23 @@
+.container {
+  padding: 10px;
+  width: 100%;
+  max-width: var(--max-width);
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+@media screen and (min-width: 500px) {
+  .actions {
+    width: auto;
+  }
+}
