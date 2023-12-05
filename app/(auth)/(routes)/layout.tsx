@@ -1,5 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs';
-import { Content } from '../components';
+import { Content } from '../_components';
 
 interface Props {
   children: React.ReactNode;

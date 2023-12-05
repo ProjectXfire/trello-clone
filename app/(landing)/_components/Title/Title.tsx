@@ -1,5 +1,5 @@
 import styles from './Title.module.css';
-import { hexToRgb } from '@/app/shared/helpers';
+import { hexToRgb } from '@/shared/helpers';
 
 interface Props {
   text: string;

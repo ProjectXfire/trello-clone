@@ -1,5 +1,5 @@
 import { Medal } from 'lucide-react';
-import { Content, Header, Paragraph, Signup, Title } from '../components';
+import { Content, Header, Paragraph, Signup, Title } from '../_components';
 
 export default function LandingPage() {
   return (
