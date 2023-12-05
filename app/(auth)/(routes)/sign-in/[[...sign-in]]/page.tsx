@@ -1,4 +1,6 @@
+import { SignIn } from '@clerk/nextjs';
+
 function SigninPage(): JSX.Element {
-  return <div>SigninPage</div>;
+  return <SignIn />;
 }
 export default SigninPage;
