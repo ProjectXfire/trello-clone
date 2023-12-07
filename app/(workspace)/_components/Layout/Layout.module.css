@@ -1,0 +1,29 @@
+.main-container {
+  height: 100%;
+}
+
+.organization-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 50px 10px 0 10px;
+}
+
+.organization-content {
+  display: flex;
+  gap: 20px;
+}
+
+.organization-content__sidebar {
+  width: 256px;
+  display: none;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .organization-container {
+    padding-top: 60px;
+  }
+  .organization-content__sidebar {
+    display: block;
+  }
+}

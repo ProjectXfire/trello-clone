@@ -1,4 +1,5 @@
-import { Content, Navbar } from '../_components';
+import { CustomSidebar } from '@/shared/components';
+import { MainContent, Navbar } from '../_components';
 
 interface Props {
   children: React.ReactNode;
@@ -6,10 +7,11 @@ interface Props {
 
 function WorkspaceLayout({ children }: Props) {
   return (
-    <Content>
+    <MainContent>
       <Navbar />
+      <CustomSidebar />
       {children}
-    </Content>
+    </MainContent>
   );
 }
 export default WorkspaceLayout;
