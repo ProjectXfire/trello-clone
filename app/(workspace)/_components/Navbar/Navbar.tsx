@@ -2,11 +2,12 @@ import { Button, Logo } from '@/shared/components';
 import styles from './Navbar.module.css';
 import { Plus } from 'lucide-react';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
+import { NavbarOpenMenu } from '..';
 
 function Navbar(): JSX.Element {
   return (
     <nav className={styles.container}>
-      {/* Mobile sidebar */}
+      <NavbarOpenMenu />
       <div className={styles.navbar}>
         <div className={styles['navbar__logo-container']}>
           <div className={styles.navbar__logo}>
