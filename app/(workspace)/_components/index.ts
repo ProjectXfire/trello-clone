@@ -5,3 +5,4 @@ export { default as NavbarOpenMenu } from './Navbar/NavbarOpenMenu';
 export { default as OrgControl } from './OrgControl/OrgControl';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as SidebarItem } from './Sidebar/SidebarItem';
+export { default as SidebarSkeleton } from './Sidebar/SidebarSkeleton';

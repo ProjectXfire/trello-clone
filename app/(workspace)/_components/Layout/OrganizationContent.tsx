@@ -12,7 +12,7 @@ function OrganizationContent({ children }: Props) {
         <div className={styles['organization-content__sidebar']}>
           <Sidebar />
         </div>
-        {children}
+        <div className={styles['organization-content__body']}>{children}</div>
       </div>
     </div>
   );

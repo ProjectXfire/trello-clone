@@ -6,8 +6,8 @@ import { useOrganization, useOrganizationList } from '@clerk/nextjs';
 import { useLocalStorage } from 'usehooks-ts';
 import { type TOrganization } from './SidebarItem';
 import styles from './Sidebar.module.css';
-import { Separator, Button, Skeleton, Accordion } from '@/shared/components';
-import { SidebarItem } from '..';
+import { Button, Skeleton, Accordion } from '@/shared/components';
+import { SidebarItem, SidebarSkeleton } from '..';
 
 interface Props {
   storageKey?: string;
@@ -36,7 +36,7 @@ function Sidebar({ storageKey = 't-sidebar-desktop', paddingTop }: Props): JSX.E
   };
 
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
-    return <Skeleton />;
+    return <SidebarSkeleton />;
   }
 
   return (

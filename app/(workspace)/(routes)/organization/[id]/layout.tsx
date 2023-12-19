@@ -6,10 +6,10 @@ interface Props {
 
 function OrganizationDetail({ children }: Props) {
   return (
-    <div>
+    <>
       <OrgControl />
       {children}
-    </div>
+    </>
   );
 }
 export default OrganizationDetail;
