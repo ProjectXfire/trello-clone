@@ -25,9 +25,6 @@ function MobileSidebar(): JSX.Element {
 
   return (
     <Sheet open={isOpen} onOpenChange={close}>
-      <SheetTrigger asChild>
-        <Button variant='outline'>Open</Button>
-      </SheetTrigger>
       <SheetContent side='left'>{component}</SheetContent>
     </Sheet>
   );

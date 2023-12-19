@@ -4,8 +4,8 @@
 
 .organization-container {
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 50px 10px 0 10px;
+  margin: 0px auto;
+  padding: 80px 10px 0 10px;
 }
 
 .organization-content {
@@ -19,11 +19,15 @@
   flex-shrink: 0;
 }
 
+.organization-content__body {
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
-  .organization-container {
-    padding-top: 60px;
-  }
   .organization-content__sidebar {
     display: block;
+  }
+  .organization-content__body {
+    width: calc(100% - 300px);
   }
 }

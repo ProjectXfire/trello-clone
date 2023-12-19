@@ -97,4 +97,5 @@ function SidebarItem({ isActive, isExpanded, onExpand, organization }: Props): J
     </AccordionItem>
   );
 }
+
 export default SidebarItem;
