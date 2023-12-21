@@ -1,3 +1,5 @@
+export { default as Boards } from './Boards/Boards';
+export { default as CreateForm } from './CreateBoard/CreateForm';
 export { default as MainContent } from './Layout/MainContent';
 export { default as OrganizationContent } from './Layout/OrganizationContent';
 export { default as Navbar } from './Navbar/Navbar';
