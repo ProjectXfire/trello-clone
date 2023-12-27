@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './CreateForm.module.css';
-import { Button, CustomInput } from '@/shared/components';
+import { Button, CustomInput, Submit } from '@/shared/components';
 import { createBoard } from '../../_actions/create-board';
 import { useAction } from '../../_hooks/useAction';
 
@@ -19,7 +19,7 @@ function CreateForm(): JSX.Element {
   return (
     <form className={styles.form} action={onSubmit}>
       <CustomInput name='title' fullWidth placeholder='Title' errors={fieldErrors} type='text' />
-      <Button type='submit'>Create</Button>
+      <Submit>Create</Submit>
     </form>
   );
 }

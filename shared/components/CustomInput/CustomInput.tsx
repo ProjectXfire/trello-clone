@@ -1,39 +1,60 @@
 'use client';
 
 import { useFormStatus } from 'react-dom';
-import { type HTMLInputTypeAttribute } from 'react';
+import { forwardRef, type HTMLInputTypeAttribute } from 'react';
 import styles from './CustomInput.module.css';
-import { Input } from '..';
+import { Input, InputError } from '..';
 
 interface Props {
-  name?: string;
+  defaultValue?: string;
+  name: string;
   fullWidth?: boolean;
   placeholder?: string;
   type?: HTMLInputTypeAttribute;
-  errors?: Record<string, string[]>;
+  errors?: Record<string, string[] | undefined>;
+  required?: boolean;
+  disabled?: boolean;
+  onBlur?: () => void;
 }
 
-function CustomInput({ errors, type = 'text', name, placeholder, fullWidth }: Props): JSX.Element {
-  const { pending } = useFormStatus();
+const CustomInput = forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      errors,
+      type = 'text',
+      name,
+      placeholder,
+      fullWidth,
+      required,
+      onBlur,
+      defaultValue,
+      disabled
+    },
+    ref
+  ) => {
+    const { pending } = useFormStatus();
 
-  return (
-    <div className={`${styles['input-group']} ${fullWidth && styles['full-width']}`}>
-      <Input
-        className={styles.input}
-        type={type}
-        id={name}
-        name={name}
-        placeholder={placeholder}
-        disabled={pending}
-      />
-      {errors && (
-        <>
-          {errors.title?.map((error) => (
-            <span key={error}>{error}</span>
-          ))}
-        </>
-      )}
-    </div>
-  );
-}
+    return (
+      <div className={`${styles['input-group']} ${fullWidth && styles['full-width']}`}>
+        <Input
+          defaultValue={defaultValue}
+          ref={ref}
+          className={styles.input}
+          type={type}
+          id={name}
+          name={name}
+          placeholder={placeholder}
+          disabled={pending || disabled}
+          required={required}
+          onBlur={onBlur}
+          aria-describedby={`${name}-error`}
+        />
+        <InputError errors={errors} name={name} />
+      </div>
+    );
+  }
+);
+
+CustomInput.displayName = 'CustomInput';
+
 export default CustomInput;
