@@ -1,9 +1,5 @@
 import { useState, useCallback } from 'react';
-import {
-  createSafeAction,
-  type ActionState,
-  type FieldsErrors
-} from '@/shared/lib/createSafeAction';
+import { type ActionState, type FieldsErrors } from '@/shared/lib/createSafeAction';
 
 type Action<TInput, TOutput> = (data: TInput) => Promise<ActionState<TInput, TOutput>>;
 
@@ -28,7 +24,7 @@ export function useAction<TInput, TOutput>(
       try {
         const result = await action(input);
         if (!result) return;
-        if (result.fieldErrors) setFieldErrors(result.fieldErrors);
+        setFieldErrors(result.fieldErrors);
         if (result.error) {
           setError(result.error);
           options.onError?.(result.error);
@@ -45,11 +41,18 @@ export function useAction<TInput, TOutput>(
     [action, options]
   );
 
+  const clearData = (): void => {
+    setError(undefined);
+    setData(undefined);
+    setFieldErrors(undefined);
+  };
+
   return {
     error,
     fieldErrors,
     isLoading,
     data,
-    execute
+    execute,
+    clearData
   };
 }

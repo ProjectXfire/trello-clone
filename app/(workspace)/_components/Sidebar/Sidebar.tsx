@@ -6,7 +6,7 @@ import { useOrganization, useOrganizationList } from '@clerk/nextjs';
 import { useLocalStorage } from 'usehooks-ts';
 import { type TOrganization } from './SidebarItem';
 import styles from './Sidebar.module.css';
-import { Button, Skeleton, Accordion } from '@/shared/components';
+import { Button, Accordion } from '@/shared/components';
 import { SidebarItem, SidebarSkeleton } from '..';
 
 interface Props {

@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Button, Sheet, SheetContent, SheetTrigger } from '@/shared/components';
+import { Sheet, SheetContent } from '@/shared/components';
 import { useEffect, useState } from 'react';
 import { useSidebar } from '@/shared/states';
 

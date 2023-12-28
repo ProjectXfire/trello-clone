@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner';
 import { CustomSidebar } from '@/shared/components';
 import { MainContent, Navbar } from '../_components';
 
@@ -10,6 +11,7 @@ function WorkspaceLayout({ children }: Props) {
     <MainContent>
       <Navbar />
       <CustomSidebar />
+      <Toaster />
       {children}
     </MainContent>
   );

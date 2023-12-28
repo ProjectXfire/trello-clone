@@ -1,13 +1,17 @@
-interface Props {
-  data: Array<{ id: string; title: string }>;
-}
+import { User2 } from 'lucide-react';
+import styles from './Boards.module.css';
+import { NewBoard } from '..';
 
-function Boards({ data }: Props): JSX.Element {
+function Boards(): JSX.Element {
   return (
     <section>
-      {data.map((board) => (
-        <div key={board.id}>{board.title}</div>
-      ))}
+      <header className={styles['boards-header']}>
+        <User2 />
+        <p>Your boards</p>
+      </header>
+      <div className={styles['boards-list']}>
+        <NewBoard />
+      </div>
     </section>
   );
 }
