@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.detail > p:nth-of-type(1) {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color3);
+}
+
+.subscription {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--slate-dark);
+}
+
+.skeleton-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeleton-image {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+
+.skeleton-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.skeleton-subcription {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

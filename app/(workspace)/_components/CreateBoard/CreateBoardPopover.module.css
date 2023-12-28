@@ -1,0 +1,10 @@
+.content {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

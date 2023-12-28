@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { useOrganizationList } from '@clerk/nextjs';
 
