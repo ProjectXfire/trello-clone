@@ -2,7 +2,7 @@ import { Button, Logo } from '@/shared/components';
 import styles from './Navbar.module.css';
 import { Plus } from 'lucide-react';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
-import { NavbarOpenMenu } from '..';
+import { CreateBoardPopover, NavbarOpenMenu } from '..';
 
 function Navbar(): JSX.Element {
   return (
@@ -13,12 +13,16 @@ function Navbar(): JSX.Element {
           <div className={styles.navbar__logo}>
             <Logo />
           </div>
-          <Button type='button' size='sm' className={styles.navbar__create}>
-            Create
-          </Button>
-          <Button size='sm' type='button' className={styles.navbar__plus}>
-            <Plus size={20} />
-          </Button>
+          <CreateBoardPopover align='start' side='bottom' sideOffset={18}>
+            <div role='button' className={styles.navbar__create}>
+              Create
+            </div>
+          </CreateBoardPopover>
+          <CreateBoardPopover align='start' side='bottom' sideOffset={18}>
+            <div className={styles.navbar__plus}>
+              <Plus size={20} />
+            </div>
+          </CreateBoardPopover>
         </div>
         <div className={styles.navbar__org}>
           <OrganizationSwitcher

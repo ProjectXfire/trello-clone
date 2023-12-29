@@ -8,12 +8,17 @@ import db from '@/shared/lib/db';
 import { createBoardSchema } from './createSchema';
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId } = auth();
-  if (!userId) return { error: 'Unauthorized' };
-  const { title } = data;
+  const { userId, orgId } = auth();
+  if (!userId || !orgId) return { error: 'Unauthorized' };
+  const { title, image } = data;
+  const [imageId, imageThumUrl, imageFullUrl, imageLinkHTML, imageUsername] = image.split('|');
+  if (!imageId || !imageThumUrl || !imageFullUrl || !imageLinkHTML || !imageUsername)
+    return { error: 'Missing fields. Failed to create board' };
   let board;
   try {
-    board = await db.board.create({ data: { title } });
+    board = await db.board.create({
+      data: { title, orgId, imageId, imageFullUrl, imageLinkHTML, imageThumUrl, imageUsername }
+    });
   } catch (error) {
     return { error: 'Failed to create' };
   }
