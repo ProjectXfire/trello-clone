@@ -8,3 +8,35 @@
   flex-direction: column;
   gap: 10px;
 }
+
+.picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.picker-item {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: var(--slate-light);
+  overflow: hidden;
+  transition: opacity 200ms;
+}
+
+.picker-item__check {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 10;
+  color: white;
+  background-color: var(--color3);
+  border-radius: 50%;
+}
+
+.picker-item:hover {
+  opacity: 0.7;
+}

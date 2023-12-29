@@ -1,6 +1,7 @@
 export { default as Boards } from './Boards/Boards';
 export { default as NewBoard } from './Boards/NewBoard';
 export { default as CreateBoardPopover } from './CreateBoard/CreateBoardPopover';
+export { default as PickerBoard } from './CreateBoard/PickerBoard';
 export { default as Info } from './Info/Info';
 export { default as MainContent } from './Layout/MainContent';
 export { default as OrganizationContent } from './Layout/OrganizationContent';
