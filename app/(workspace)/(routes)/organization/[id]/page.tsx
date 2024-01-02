@@ -1,4 +1,5 @@
-import { Boards, Info } from '@/app/(workspace)/_components';
+import { Suspense } from 'react';
+import { Boards, BoardsSkeleton, Info } from '@/app/(workspace)/_components';
 import { Separator } from '@/shared/components';
 
 async function OrganizationPage(): Promise<JSX.Element> {
@@ -6,7 +7,9 @@ async function OrganizationPage(): Promise<JSX.Element> {
     <>
       <Info />
       <Separator className='my-4' />
-      <Boards />
+      <Suspense fallback={<BoardsSkeleton />}>
+        <Boards />
+      </Suspense>
     </>
   );
 }
