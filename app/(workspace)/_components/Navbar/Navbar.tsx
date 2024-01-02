@@ -1,4 +1,5 @@
-import { Button, Logo } from '@/shared/components';
+import NextLink from 'next/link';
+import { Logo } from '@/shared/components';
 import styles from './Navbar.module.css';
 import { Plus } from 'lucide-react';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
@@ -10,9 +11,9 @@ function Navbar(): JSX.Element {
       <NavbarOpenMenu />
       <div className={styles.navbar}>
         <div className={styles['navbar__logo-container']}>
-          <div className={styles.navbar__logo}>
+          <NextLink href='/' className={styles.navbar__logo}>
             <Logo />
-          </div>
+          </NextLink>
           <CreateBoardPopover align='start' side='bottom' sideOffset={18}>
             <div role='button' className={styles.navbar__create}>
               Create

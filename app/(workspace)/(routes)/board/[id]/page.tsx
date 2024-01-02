@@ -1,4 +1,4 @@
 function BoardPage(): JSX.Element {
-  return <div>BoardPage</div>;
+  return <section style={{ paddingTop: 70 }}>BoardPage</section>;
 }
 export default BoardPage;

@@ -6,6 +6,7 @@ export { default as Logo } from './Logo/Logo';
 export { default as Submit } from './Submit/Submit';
 export * from './ui/Accordion';
 export * from './ui/Button';
+export * from './ui/Dialog';
 export * from './ui/Input';
 export * from './ui/Popover';
 export * from './ui/Separator';

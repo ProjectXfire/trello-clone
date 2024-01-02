@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  cursor: default;
+  cursor: pointer;
 }
 
 .logo__img {

@@ -15,6 +15,7 @@ interface Props {
   required?: boolean;
   disabled?: boolean;
   onBlur?: () => void;
+  transparent?: boolean;
 }
 
 const CustomInput = forwardRef<HTMLInputElement, Props>(
@@ -28,7 +29,8 @@ const CustomInput = forwardRef<HTMLInputElement, Props>(
       required,
       onBlur,
       defaultValue,
-      disabled
+      disabled,
+      transparent
     },
     ref
   ) => {
@@ -37,9 +39,9 @@ const CustomInput = forwardRef<HTMLInputElement, Props>(
     return (
       <div className={`${styles['input-group']} ${fullWidth && styles['full-width']}`}>
         <Input
+          className={`${styles.input} ${transparent && styles['input-transparent']}`}
           defaultValue={defaultValue}
           ref={ref}
-          className={styles.input}
           type={type}
           id={name}
           name={name}

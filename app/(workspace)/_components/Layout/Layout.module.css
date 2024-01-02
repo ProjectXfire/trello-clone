@@ -31,3 +31,14 @@
     width: calc(100% - 300px);
   }
 }
+
+.board-content {
+  height: 100%;
+  max-width: var(--max-width);
+  margin: 0px auto;
+  padding-top: 60px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
