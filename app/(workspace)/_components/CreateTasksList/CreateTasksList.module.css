@@ -1,0 +1,32 @@
+.container {
+  height: 100%;
+  width: 272px;
+  position: relative;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.open-form {
+  position: absolute;
+  width: 100%;
+  justify-content: flex-start;
+  background-color: rgba(100, 116, 139, 0.5);
+}
+
+.form {
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 5px;
+  background-color: var(--slate-light);
+}
+
+.form__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

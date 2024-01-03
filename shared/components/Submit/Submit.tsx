@@ -16,7 +16,13 @@ function Submit({ children, disabled, variant = 'default' }: Props): JSX.Element
   const { pending } = useFormStatus();
 
   return (
-    <Button type='submit' size='sm' variant={variant} disabled={pending || disabled}>
+    <Button
+      className={styles.submit}
+      type='submit'
+      size='sm'
+      variant={variant}
+      disabled={pending || disabled}
+    >
       {children}
     </Button>
   );
