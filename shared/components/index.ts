@@ -1,6 +1,7 @@
 export { default as CustomInput } from './CustomInput/CustomInput';
 export { default as InputError } from './CustomInput/InputError';
 export { default as CustomSidebar } from './CustomSidebar/CustomSidebar';
+export { default as DeleteDialog } from './DeleteDialog/DeleteDialog';
 export { default as Hint } from './Hint/Hint';
 export { default as Logo } from './Logo/Logo';
 export { default as Submit } from './Submit/Submit';

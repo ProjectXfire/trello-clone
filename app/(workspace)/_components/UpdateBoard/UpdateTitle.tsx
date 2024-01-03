@@ -3,7 +3,7 @@
 import { type ElementRef, useRef, useState } from 'react';
 import { toast } from 'sonner';
 import { type Board } from '@prisma/client';
-import { createBoard } from '../../_actions/update-board';
+import { updateBoard } from '../../_actions/update-board';
 import { useAction } from '../../_hooks';
 import styles from './UpdateBoard.module.css';
 import { Button, CustomInput } from '@/shared/components';
@@ -18,16 +18,13 @@ function UpdateTitle({ data }: Props): JSX.Element {
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState(data.title);
 
-  const { execute } = useAction(createBoard, {
+  const { execute } = useAction(updateBoard, {
     onSuccess: (data) => {
       setTitle(data.title);
       toast.success(`Board "${data.title}" updated!`);
     },
     onError: () => {
       toast.error('Something went wrong!');
-    },
-    onCompleted: () => {
-      disableEditing();
     }
   });
 
@@ -45,11 +42,10 @@ function UpdateTitle({ data }: Props): JSX.Element {
 
   const onSubmit = (formData: FormData): void => {
     const newTtitle = formData.get('title') as string;
-    if (title === newTtitle) {
-      disableEditing();
-      return;
+    if (title !== newTtitle) {
+      execute({ id: data.id, title: newTtitle });
     }
-    execute({ id: data.id, title: newTtitle });
+    disableEditing();
   };
 
   const onBlurSubmit = (): void => {

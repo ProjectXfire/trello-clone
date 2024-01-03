@@ -17,7 +17,8 @@ import {
   DialogContent,
   DialogTitle,
   DialogDescription,
-  DialogFooter
+  DialogFooter,
+  DeleteDialog
 } from '@/shared/components';
 
 interface Props {
@@ -26,7 +27,7 @@ interface Props {
 
 function BoardNavbarOptions({ id }: Props): JSX.Element {
   const [openConfirmationDialog, setOpenConfirmationDialog] = useState(false);
-  const { execute } = useAction(deleteBoard, {
+  const { execute, isLoading } = useAction(deleteBoard, {
     onSuccess: () => {
       toast.success('Board successfully deleted!');
     },
@@ -50,7 +51,7 @@ function BoardNavbarOptions({ id }: Props): JSX.Element {
     <>
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant='transparent'>
+          <Button variant='transparent' size='sm'>
             <MoreHorizontal className='h-4 w-4' />
           </Button>
         </PopoverTrigger>
@@ -70,25 +71,15 @@ function BoardNavbarOptions({ id }: Props): JSX.Element {
           </div>
         </PopoverContent>
       </Popover>
-      <Dialog open={openConfirmationDialog} onOpenChange={onCloseDialog}>
-        <DialogContent className='pt-8'>
-          <DialogHeader>
-            <DialogTitle>Are you sure to delete this board?</DialogTitle>
-            <DialogDescription>
-              This action cannot be undone. This will permanently delete your account and remove
-              your data from our servers.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className='flex gap-2 sm:justify-end sm:gap-0'>
-            <Button type='button' variant='destructive' onClick={onDelete}>
-              Delete
-            </Button>
-            <Button type='button' variant='outline' onClick={onCloseDialog}>
-              Cancel
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      <DeleteDialog
+        isOpen={openConfirmationDialog}
+        title='Are you sure to delete this list?'
+        description='This action cannot be undone. This will permanently delete your board and remove your
+              data from our servers.'
+        loading={isLoading}
+        close={onCloseDialog}
+        action={onDelete}
+      />
     </>
   );
 }

@@ -1,0 +1,50 @@
+.taskslist-container {
+  padding-top: 50px;
+  display: flex;
+  gap: 10px;
+}
+
+.taskslist {
+  height: 100%;
+  width: 272px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  flex-shrink: 0;
+  user-select: none;
+  background-color: var(--slate-light);
+}
+
+.taskslist-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.taskslist-header p {
+  width: 200px;
+  padding: 9px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+.taskslist-form {
+  width: 100%;
+}
+
+.taskslist-options {
+  padding-top: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.taskslist-options__close {
+  padding: 3px;
+  height: auto;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+}

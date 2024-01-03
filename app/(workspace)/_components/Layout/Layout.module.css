@@ -42,3 +42,18 @@
   background-position: center;
   background-size: cover;
 }
+
+.board-content__image {
+  max-width: var(--max-width);
+  margin: 0px auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.board-content__image img {
+  object-fit: cover;
+}
