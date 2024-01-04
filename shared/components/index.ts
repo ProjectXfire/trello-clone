@@ -13,4 +13,5 @@ export * from './ui/Popover';
 export * from './ui/Separator';
 export * from './ui/Sheet';
 export * from './ui/Skeleton';
+export * from './ui/Textarea';
 export * from './ui/Tooltip';

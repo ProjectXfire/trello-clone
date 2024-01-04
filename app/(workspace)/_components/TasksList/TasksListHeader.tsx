@@ -13,9 +13,10 @@ interface Props {
   id: string;
   boardId: string;
   title: string;
+  onAddCard: () => void;
 }
 
-function TasksListHeader({ id, boardId, title }: Props): JSX.Element {
+function TasksListHeader({ id, boardId, title, onAddCard }: Props): JSX.Element {
   const formRef = useRef<ElementRef<'form'>>(null);
   const inputRef = useRef<ElementRef<'input'>>(null);
 
@@ -79,7 +80,7 @@ function TasksListHeader({ id, boardId, title }: Props): JSX.Element {
       ) : (
         <p onClick={enableEditing}>{currentTitle}</p>
       )}
-      <TasksListOption id={id} boardId={boardId} onAddCard={() => {}} />
+      <TasksListOption id={id} boardId={boardId} onAddCard={onAddCard} />
     </header>
   );
 }

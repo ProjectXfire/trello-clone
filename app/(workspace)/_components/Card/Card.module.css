@@ -1,0 +1,30 @@
+.card-form-container {
+  margin-top: 5px;
+  width: 100%;
+}
+
+.card-form-container__actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.card-item {
+  padding: 8px 15px;
+  background-color: var(--white);
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.card-item:hover {
+  cursor: pointer;
+  border: 2px solid var(--color3);
+}
+
+.card-item p {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
