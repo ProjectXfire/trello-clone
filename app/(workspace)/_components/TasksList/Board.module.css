@@ -48,3 +48,10 @@
   top: -12px;
   right: -12px;
 }
+
+.taskslist-items {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

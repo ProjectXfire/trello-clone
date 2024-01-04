@@ -2,6 +2,8 @@ export { default as BoardItem } from './Boards/BoardItem';
 export { default as Boards } from './Boards/Boards';
 export { default as BoardsSkeleton } from './Boards/BoardsSkeleton';
 export { default as NewBoard } from './Boards/NewBoard';
+export { default as CardForm } from './Card/CardForm';
+export { default as CardItem } from './Card/CardItem';
 export { default as CreateBoardPopover } from './CreateBoard/CreateBoardPopover';
 export { default as PickerBoard } from './CreateBoard/PickerBoard';
 export { default as AddTasksList } from './CreateTasksList/AddTasksList';

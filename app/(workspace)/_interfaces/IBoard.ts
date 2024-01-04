@@ -1,7 +1,7 @@
 import { Card, List } from '@prisma/client';
 
 export interface IList extends List {
-  card?: Card[];
+  cards?: Card[];
 }
 
 export interface ICard extends Card {
