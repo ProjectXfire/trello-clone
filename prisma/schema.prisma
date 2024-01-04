@@ -21,7 +21,7 @@ model Board {
   imageUsername String @db.Text
   imageLinkHTML String @db.Text
   createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt
   lists List[]
 }
 
@@ -31,7 +31,7 @@ model List {
   order Int
   boardId String
   createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt
   cards Card[]
   board Board @relation(fields: [boardId], references: [id], onDelete: Cascade)
   @@index([boardId])
@@ -43,7 +43,7 @@ model Card {
   order Int
   description String? @db.Text
   createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt
   listId String
   list List @relation(fields: [listId], references: [id], onDelete: Cascade)
   @@index([listId])
