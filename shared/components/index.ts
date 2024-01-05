@@ -1,9 +1,11 @@
+export { default as CustomDialog } from './CustomDialog/CustomDialog';
 export { default as CustomInput } from './CustomInput/CustomInput';
 export { default as InputError } from './CustomInput/InputError';
 export { default as CustomSidebar } from './CustomSidebar/CustomSidebar';
 export { default as DeleteDialog } from './DeleteDialog/DeleteDialog';
 export { default as Hint } from './Hint/Hint';
 export { default as Logo } from './Logo/Logo';
+export { default as Providers } from './Providers/Providers';
 export { default as Submit } from './Submit/Submit';
 export * from './ui/Accordion';
 export * from './ui/Button';

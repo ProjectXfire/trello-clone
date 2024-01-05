@@ -18,7 +18,7 @@
 
 .card-item:hover {
   cursor: pointer;
-  border: 2px solid var(--color3);
+  border: 2px solid var(--color4);
 }
 
 .card-item p {
@@ -26,5 +26,36 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+.card-dialog-header {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.card-dialog-header form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-dialog-header__edit {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.card-dialog-header__edit--enable {
+  color: var(--success);
+}
+
+.card-dialog-header__edit--disable {
+  color: var(--slate-dark);
+}
+
+.card-dialog-header__subtitle {
+  margin-left: 50px;
   font-size: 0.9rem;
 }

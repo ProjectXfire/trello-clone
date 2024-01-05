@@ -1,5 +1,5 @@
 import { Toaster } from 'sonner';
-import { CustomSidebar } from '@/shared/components';
+import { CustomDialog, CustomSidebar, Providers } from '@/shared/components';
 import { MainContent, Navbar } from '../_components';
 
 interface Props {
@@ -9,10 +9,13 @@ interface Props {
 function WorkspaceLayout({ children }: Props) {
   return (
     <MainContent>
-      <Navbar />
-      <CustomSidebar />
-      <Toaster />
-      {children}
+      <Providers>
+        <Navbar />
+        <CustomSidebar />
+        <CustomDialog />
+        <Toaster />
+        {children}
+      </Providers>
     </MainContent>
   );
 }
