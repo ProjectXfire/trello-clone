@@ -1,3 +1,5 @@
+/* Card item in list */
+
 .card-form-container {
   margin-top: 5px;
   width: 100%;
@@ -29,6 +31,16 @@
   font-size: 0.9rem;
 }
 
+/* Card dialog container */
+
+.card-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Card dialog header */
+
 .card-dialog-header {
   width: 100%;
   margin-top: 10px;
@@ -58,4 +70,78 @@
 .card-dialog-header__subtitle {
   margin-left: 50px;
   font-size: 0.9rem;
+}
+
+/* Card description and actions */
+
+.card-dialog-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.card-dialog-description {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-dialog-description__title {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.card-dialog-description__content {
+  width: calc(100% - 40px);
+  min-height: 100px;
+  margin-left: 40px;
+  padding: 10px 20px;
+  background-color: var(--slate-light);
+  border-radius: 5px;
+}
+
+.card-dialog-description__form {
+  width: calc(100% - 40px);
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card-dialog-description__form textarea {
+  min-height: 100px;
+}
+
+.card-dialog-description__form > div {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.card-dialog-actions-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-dialog-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-dialog-actions button {
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (min-width: 425px) {
+  .card-dialog-content {
+    grid-template-columns: 2.5fr 1fr;
+  }
 }
