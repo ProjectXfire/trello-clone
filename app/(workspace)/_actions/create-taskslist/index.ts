@@ -21,7 +21,7 @@ async function handler(data: InputType): Promise<ReturnType> {
       orderBy: { order: 'desc' },
       select: { order: true }
     });
-    const newOrder = lastList ? lastList.order + 1 : 1;
+    const newOrder = lastList ? lastList.order + 1 : 0;
     tasksList = await db.list.create({ data: { title, boardId: id, order: newOrder } });
   } catch (error) {
     return { error: 'Failed to update' };

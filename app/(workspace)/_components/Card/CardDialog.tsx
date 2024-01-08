@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { type ICard } from '../../_interfaces';
 import { fetcher } from '@/shared/helpers';
 import styles from './Card.module.css';
-import { CardDialogHeader } from '..';
+import { CardActions, CardDialogDescription, CardDialogHeader } from '..';
 
 interface Props {
   cardId: string;
@@ -24,14 +24,20 @@ function CardDialog({ cardId }: Props): JSX.Element {
     return (
       <>
         <CardDialogHeader.Skeleton />
+        <CardDialogDescription.Skeleton />
+        <CardActions.Skeleton />
       </>
     );
 
   if (error) return <p>error...</p>;
 
   return (
-    <div>
+    <div className={styles['card-dialog']}>
       <CardDialogHeader data={cardData!} />
+      <div className={styles['card-dialog-content']}>
+        <CardDialogDescription data={cardData!} />
+        <CardActions data={cardData!} />
+      </div>
     </div>
   );
 }
