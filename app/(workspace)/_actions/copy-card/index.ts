@@ -2,10 +2,12 @@
 
 import { auth } from '@clerk/nextjs';
 import { type InputType, type ReturnType } from './types';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 import db from '@/shared/lib/db';
 import { createSafeAction } from '@/shared/lib/createSafeAction';
 import { copyCardSchema } from './copySchema';
 import { revalidatePath } from 'next/cache';
+import { createAuditLog } from '@/shared/lib/createAuditLog';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
@@ -31,6 +33,12 @@ async function handler(data: InputType): Promise<ReturnType> {
         description: copyCard.description,
         listId: copyCard.listId
       }
+    });
+    await createAuditLog({
+      entityId: card.id,
+      entityTitle: card.title,
+      action: ACTION.CREATE,
+      entityType: ENTITY_TYPE.CARD
     });
   } catch (error) {
     return { error: 'Failed to copy' };

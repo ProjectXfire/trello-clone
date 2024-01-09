@@ -21,6 +21,8 @@
 
 .organization-content__body {
   width: 100%;
+  height: calc(100dvh - 80px);
+  overflow: auto;
 }
 
 @media screen and (min-width: 768px) {

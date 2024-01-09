@@ -2,10 +2,12 @@
 
 import { auth } from '@clerk/nextjs';
 import { type InputType, type ReturnType } from './types';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 import db from '@/shared/lib/db';
 import { createSafeAction } from '@/shared/lib/createSafeAction';
 import { deleteBoardSchema } from './deleteSchema';
 import { redirect } from 'next/navigation';
+import { createAuditLog } from '@/shared/lib/createAuditLog';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
@@ -13,7 +15,13 @@ async function handler(data: InputType): Promise<ReturnType> {
   const { id } = data;
   if (!id) return { error: 'Missing fields. Failed to delete board' };
   try {
-    await db.board.delete({ where: { id, orgId } });
+    const board = await db.board.delete({ where: { id, orgId } });
+    await createAuditLog({
+      entityId: board.id,
+      entityTitle: board.title,
+      action: ACTION.DELETE,
+      entityType: ENTITY_TYPE.BOARD
+    });
   } catch (error) {
     return { error: 'Failed to delete' };
   }

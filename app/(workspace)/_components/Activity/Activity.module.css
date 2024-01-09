@@ -1,0 +1,9 @@
+.activity-logs-empty {
+  font-size: 1.5rem;
+}
+
+.activity-logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
