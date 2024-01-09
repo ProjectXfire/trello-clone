@@ -2,10 +2,12 @@
 
 import { revalidatePath } from 'next/cache';
 import { auth } from '@clerk/nextjs';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 import { type InputType, type ReturnType } from './types';
 import db from '@/shared/lib/db';
 import { createSafeAction } from '@/shared/lib/createSafeAction';
 import { createTasksListSchema } from './createSchema';
+import { createAuditLog } from '@/shared/lib/createAuditLog';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
@@ -23,6 +25,12 @@ async function handler(data: InputType): Promise<ReturnType> {
     });
     const newOrder = lastList ? lastList.order + 1 : 0;
     tasksList = await db.list.create({ data: { title, boardId: id, order: newOrder } });
+    await createAuditLog({
+      entityId: tasksList.id,
+      entityTitle: tasksList.title,
+      action: ACTION.CREATE,
+      entityType: ENTITY_TYPE.LIST
+    });
   } catch (error) {
     return { error: 'Failed to update' };
   }

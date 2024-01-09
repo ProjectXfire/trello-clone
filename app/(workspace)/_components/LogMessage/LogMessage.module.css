@@ -1,0 +1,16 @@
+.log {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+}
+
+.log img {
+  border-radius: 50%;
+}
+
+.log span {
+  font-weight: bold;
+  margin-right: 4px;
+}

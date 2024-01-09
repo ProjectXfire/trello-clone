@@ -26,6 +26,7 @@ function CardDialogDescription({ data }: Props): JSX.Element {
   const queryClient = useQueryClient();
   const { execute, fieldErrors, clearData } = useAction(updateCard, {
     onSuccess: (card) => {
+      queryClient.invalidateQueries({ queryKey: ['card-logs', card.id] });
       queryClient.invalidateQueries({ queryKey: ['card', card.id] });
       descriptionRef.current = card.description;
       toast.success(`Card "${card.description}" updated`);

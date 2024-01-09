@@ -3,9 +3,11 @@
 import { revalidatePath } from 'next/cache';
 import { auth } from '@clerk/nextjs';
 import { type InputType, type ReturnType } from './types';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 import db from '@/shared/lib/db';
 import { createSafeAction } from '@/shared/lib/createSafeAction';
 import { updateBoardSchema } from './updateSchema';
+import { createAuditLog } from '@/shared/lib/createAuditLog';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
@@ -15,6 +17,12 @@ async function handler(data: InputType): Promise<ReturnType> {
   let board;
   try {
     board = await db.board.update({ where: { id, orgId }, data: { title } });
+    await createAuditLog({
+      entityId: board.id,
+      entityTitle: board.title,
+      action: ACTION.UPDATE,
+      entityType: ENTITY_TYPE.BOARD
+    });
   } catch (error) {
     return { error: 'Failed to update' };
   }

@@ -2,10 +2,12 @@
 
 import { revalidatePath } from 'next/cache';
 import { auth } from '@clerk/nextjs';
+import { ACTION, ENTITY_TYPE } from '@prisma/client';
 import { type ReturnType, type InputType } from './types';
 import { createSafeAction } from '@/shared/lib/createSafeAction';
 import db from '@/shared/lib/db';
 import { createBoardSchema } from './createSchema';
+import { createAuditLog } from '@/shared/lib/createAuditLog';
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -18,6 +20,12 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   try {
     board = await db.board.create({
       data: { title, orgId, imageId, imageFullUrl, imageLinkHTML, imageThumUrl, imageUsername }
+    });
+    await createAuditLog({
+      entityId: board.id,
+      entityTitle: board.title,
+      action: ACTION.CREATE,
+      entityType: ENTITY_TYPE.BOARD
     });
   } catch (error) {
     return { error: 'Failed to create' };

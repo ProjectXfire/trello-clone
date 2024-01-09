@@ -81,6 +81,12 @@
   gap: 20px;
 }
 
+.card-dialog-content__data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .card-dialog-description {
   display: flex;
   align-items: flex-start;
@@ -142,6 +148,28 @@
 
 @media screen and (min-width: 425px) {
   .card-dialog-content {
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 3fr 1fr;
   }
+}
+
+/* Card logs */
+
+.card-dialog-logs-container {
+  display: flex;
+  gap: 15px;
+}
+
+.card-dialog-logs {
+  width: 100%;
+}
+
+.card-dialog-logs__title {
+  margin-bottom: 10px;
+}
+
+.card-dialog-logs__messages {
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
