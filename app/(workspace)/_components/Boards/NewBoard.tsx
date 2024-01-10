@@ -5,13 +5,18 @@ import styles from './Boards.module.css';
 import { Hint } from '@/shared/components';
 import { CreateBoardPopover } from '..';
 
-function NewBoard(): JSX.Element {
+interface Props {
+  availableCounts: number;
+  isPro: boolean;
+}
+
+function NewBoard({ availableCounts, isPro }: Props): JSX.Element {
   return (
     <div className={styles['board-new-container']} role='button'>
       <CreateBoardPopover sideOffset={10} side='right'>
         <div className={styles['board-new']}>
           <p>Create new board</p>
-          <span>5 remaining</span>
+          {isPro ? <span>Unlimited</span> : <span>{availableCounts} remaining</span>}
         </div>
       </CreateBoardPopover>
       <Hint
@@ -23,4 +28,5 @@ function NewBoard(): JSX.Element {
     </div>
   );
 }
+
 export default NewBoard;

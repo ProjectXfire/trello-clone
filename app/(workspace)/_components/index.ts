@@ -1,4 +1,5 @@
 export { default as ActivityList } from './Activity/ActivityList';
+export { default as SubscriptionButton } from './Billing/SubscriptionButton';
 export { default as BoardItem } from './Boards/BoardItem';
 export { default as Boards } from './Boards/Boards';
 export { default as BoardsSkeleton } from './Boards/BoardsSkeleton';
@@ -26,6 +27,7 @@ export { default as OrgControl } from './OrgControl/OrgControl';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as SidebarItem } from './Sidebar/SidebarItem';
 export { default as SidebarSkeleton } from './Sidebar/SidebarSkeleton';
+export { default as SubscriptionDialog } from './Subscription/SubscriptionDialog';
 export { default as TasksList } from './TasksList/TasksList';
 export { default as TasksListContainer } from './TasksList/TasksListContainer';
 export { default as TasksListHeader } from './TasksList/TasksListHeader';

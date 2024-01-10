@@ -8,6 +8,7 @@ import { createSafeAction } from '@/shared/lib/createSafeAction';
 import { deleteBoardSchema } from './deleteSchema';
 import { redirect } from 'next/navigation';
 import { createAuditLog } from '@/shared/lib/createAuditLog';
+import { decrementAvailableCount } from '@/shared/lib/org-limit';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
@@ -22,6 +23,7 @@ async function handler(data: InputType): Promise<ReturnType> {
       action: ACTION.DELETE,
       entityType: ENTITY_TYPE.BOARD
     });
+    await decrementAvailableCount();
   } catch (error) {
     return { error: 'Failed to delete' };
   }

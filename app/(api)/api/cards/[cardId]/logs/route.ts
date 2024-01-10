@@ -10,7 +10,7 @@ interface IParams {
 export async function GET(req: NextRequest, { params }: IParams) {
   try {
     const { orgId, userId } = auth();
-    if (!orgId || !userId) return new NextResponse('Unathororized', { status: 500 });
+    if (!orgId || !userId) return new NextResponse('Unauthorized', { status: 500 });
     const auditLogs = await db.auditLog.findMany({
       where: { orgId, entityId: params.cardId, entityType: ENTITY_TYPE.CARD },
       orderBy: { createdAt: 'desc' },

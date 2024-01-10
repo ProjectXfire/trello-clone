@@ -1,4 +1,3 @@
-import { auth } from '@clerk/nextjs';
 import { type Board } from '@prisma/client';
 import styles from './Navbar.module.css';
 import { BoardNavbarOptions, UpdateTitle } from '..';
