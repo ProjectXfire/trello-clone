@@ -1,0 +1,41 @@
+.subscription-dialog {
+}
+
+.subscription-dialog__img {
+  padding: 0;
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.subscription-dialog img {
+  object-fit: cover;
+}
+
+.subscription-dialog__content {
+  padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.subscription-dialog__content h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.subscription-dialog__content p {
+  font-weight: 500;
+}
+
+.subscription-dialog__content ol {
+  list-style: inside;
+  font-size: 1.1rem;
+}
+
+.subscription-dialog__content button {
+  background-color: var(--color3);
+}
+
+.subscription-dialog__content button:hover {
+  background-color: var(--color4);
+}

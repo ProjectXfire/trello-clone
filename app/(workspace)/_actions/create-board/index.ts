@@ -8,10 +8,16 @@ import { createSafeAction } from '@/shared/lib/createSafeAction';
 import db from '@/shared/lib/db';
 import { createBoardSchema } from './createSchema';
 import { createAuditLog } from '@/shared/lib/createAuditLog';
+import { incrementAvailableCount, hasAvailableCount } from '@/shared/lib/org-limit';
+import { checkSubscription } from '@/shared/lib/subscription';
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
   if (!userId || !orgId) return { error: 'Unauthorized' };
+  const canCreateMore = await hasAvailableCount();
+  const isPro = await checkSubscription();
+  if (!canCreateMore && !isPro)
+    return { error: 'You have reached your limit of free boards. Please upgrade to create more.' };
   const { title, image } = data;
   const [imageId, imageThumUrl, imageFullUrl, imageLinkHTML, imageUsername] = image.split('|');
   if (!imageId || !imageThumUrl || !imageFullUrl || !imageLinkHTML || !imageUsername)
@@ -27,6 +33,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       action: ACTION.CREATE,
       entityType: ENTITY_TYPE.BOARD
     });
+    if (!isPro) await incrementAvailableCount();
   } catch (error) {
     return { error: 'Failed to create' };
   }

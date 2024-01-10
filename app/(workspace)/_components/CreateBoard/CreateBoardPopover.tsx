@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { createBoard } from '../../_actions/create-board';
 import { useAction } from '../../_hooks/useAction';
+import { useDialog } from '@/shared/states';
 import styles from './CreateBoardPopover.module.css';
 import { X } from 'lucide-react';
 import {
@@ -16,7 +17,7 @@ import {
   Submit,
   Button
 } from '@/shared/components';
-import { PickerBoard } from '..';
+import { PickerBoard, SubscriptionDialog } from '..';
 
 type TSide = 'left' | 'right' | 'top' | 'bottom';
 type TAlign = 'start' | 'end' | 'center';
@@ -30,11 +31,15 @@ interface Props {
 
 function CreateBoardPopover({ children, align, side, sideOffset = 0 }: Props): JSX.Element {
   const closeRef = useRef<ElementRef<'button'>>(null);
+  const open = useDialog((s) => s.open);
+  const setComponent = useDialog((s) => s.setComponent);
   const router = useRouter();
 
   const { execute, fieldErrors, clearData } = useAction(createBoard, {
     onError: (error) => {
       toast.success(error);
+      setComponent(<SubscriptionDialog />);
+      open();
     },
     onSuccess: (data) => {
       toast.error('Board successfully created');

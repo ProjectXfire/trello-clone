@@ -10,7 +10,7 @@ function CustomDialog(): JSX.Element {
 
   return (
     <Dialog open={isOpen} onOpenChange={close}>
-      <DialogContent className='pt-8'>{component}</DialogContent>
+      <DialogContent className='p-0 overflow-hidden'>{component}</DialogContent>
     </Dialog>
   );
 }

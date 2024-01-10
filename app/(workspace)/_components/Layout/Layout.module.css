@@ -15,8 +15,10 @@
 
 .organization-content__sidebar {
   width: 256px;
+  height: calc(100dvh - 80px);
   display: none;
   flex-shrink: 0;
+  overflow: auto;
 }
 
 .organization-content__body {

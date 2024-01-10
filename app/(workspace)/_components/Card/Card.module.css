@@ -34,6 +34,8 @@
 /* Card dialog container */
 
 .card-dialog {
+  padding: 20px;
+  padding-top: 35px;
   display: flex;
   flex-direction: column;
   gap: 15px;
