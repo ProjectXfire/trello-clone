@@ -9,12 +9,14 @@ import { deleteBoardSchema } from './deleteSchema';
 import { redirect } from 'next/navigation';
 import { createAuditLog } from '@/shared/lib/createAuditLog';
 import { decrementAvailableCount } from '@/shared/lib/org-limit';
+import { checkSubscription } from '@/shared/lib/subscription';
 
 async function handler(data: InputType): Promise<ReturnType> {
   const { userId, orgId } = auth();
   if (!userId || !orgId) return { error: 'Unauthorized' };
   const { id } = data;
   if (!id) return { error: 'Missing fields. Failed to delete board' };
+  const isPro = await checkSubscription();
   try {
     const board = await db.board.delete({ where: { id, orgId } });
     await createAuditLog({
@@ -23,7 +25,7 @@ async function handler(data: InputType): Promise<ReturnType> {
       action: ACTION.DELETE,
       entityType: ENTITY_TYPE.BOARD
     });
-    await decrementAvailableCount();
+    if (!isPro) await decrementAvailableCount();
   } catch (error) {
     return { error: 'Failed to delete' };
   }
