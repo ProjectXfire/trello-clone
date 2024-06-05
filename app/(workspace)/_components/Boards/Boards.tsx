@@ -1,19 +1,19 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs';
-import db from '@/shared/lib/db';
 import styles from './Boards.module.css';
 import { User2 } from 'lucide-react';
 import { BoardItem, NewBoard } from '..';
 import { getAvailableCount } from '@/shared/lib/org-limit';
 import { checkSubscription } from '@/shared/lib/subscription';
+import { getBoards } from '../../_services';
 
 async function Boards(): Promise<JSX.Element> {
   const { orgId } = auth();
 
   if (!orgId) redirect('select-org');
 
-  const boards = await db.board.findMany({ where: { orgId }, orderBy: { createdAt: 'desc' } });
-  const availableCounts = await getAvailableCount();
+  const boards = await getBoards(orgId);
+  const { data } = await getAvailableCount();
   const isPro = await checkSubscription();
 
   return (
@@ -23,7 +23,7 @@ async function Boards(): Promise<JSX.Element> {
         <p>Your boards</p>
       </header>
       <div className={styles['boards-list']}>
-        <NewBoard availableCounts={availableCounts} isPro={isPro} />
+        <NewBoard availableCounts={data} isPro={isPro} />
         {boards.map((board) => (
           <BoardItem key={board.id} board={board} />
         ))}
