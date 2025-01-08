@@ -14,7 +14,7 @@ import { checkSubscription } from '@/shared/lib/subscription';
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
   if (!userId || !orgId) return { error: 'Unauthorized' };
-  const canCreateMore = await hasAvailableCount();
+  const { data: canCreateMore } = await hasAvailableCount();
   const isPro = await checkSubscription();
   if (!canCreateMore && !isPro)
     return { error: 'You have reached your limit of free boards. Please upgrade to create more.' };
